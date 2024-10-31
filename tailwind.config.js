@@ -5,8 +5,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				title: ['"Karla"', 'sans-serif'],
-				display: ['"Inconsolata"', 'monospace']
+				quick: ['"Quicksand"', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -14,6 +13,8 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			colors: {
+				dark: '#161616',
+				light: '#fcfff6',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {

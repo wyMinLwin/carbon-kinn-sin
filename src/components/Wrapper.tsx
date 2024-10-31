@@ -1,7 +1,10 @@
 import DefaultLayout from "@/layouts/DefaultLayout";
 import HomeView from "@/modules/home/HomeView";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {RouterProvider, createBrowserRouter, Navigate} from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import LoginView from "@/modules/auth/login/LoginView.tsx";
+import AuthLayout from "@/layouts/AuthLayout.tsx";
+import RegisterView from "@/modules/auth/register/RegisterView.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -11,6 +14,24 @@ const router = createBrowserRouter([
 			{
 				path: "",
 				element: <HomeView />,
+			},
+		],
+	},
+	{
+		path: "/auth",
+		element: <AuthLayout />,
+		children: [
+			{
+				path: "",
+				element: <Navigate to="login" replace />,
+			},
+			{
+				path: "login",
+				element: <LoginView />,
+			},
+			{
+				path: "register",
+				element: <RegisterView />,
 			},
 		],
 	},
