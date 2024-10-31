@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LoginView from "@/modules/auth/login/LoginView.tsx";
 import AuthLayout from "@/layouts/AuthLayout.tsx";
 import RegisterView from "@/modules/auth/register/RegisterView.tsx";
+import AboutUsView from "@/modules/about-us/AboutUsView.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
 			{
 				path: "",
 				element: <HomeView />,
+			},
+			{
+				path: "/about-us",
+				element: <AboutUsView />,
 			},
 		],
 	},

@@ -19,7 +19,7 @@ import {UpdateIcon} from "@radix-ui/react-icons";
 import {EyeIcon, EyeOffIcon} from "lucide-react";
 
 const FormSchema = z.object({
-    name: z.string().regex(/^[a-zA-Z\s]*$/, {message: "Enter a valid name."}),
+    name: z.string().regex(/^[a-zA-Z\s]+$/, {message: "Enter a valid name."}),
     email: z.string().email(),
     password: z.string().min(4, {
         message: "Password must contain at least 4 characters.",
