@@ -29,9 +29,18 @@ importers:
       '@radix-ui/react-toast':
         specifier: ^1.2.2
         version: 1.2.2(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-visually-hidden':
+        specifier: ^1.1.0
+        version: 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/react-query':
         specifier: ^5.59.16
         version: 5.59.16(react@18.3.1)
+      '@vis.gl/react-google-maps':
+        specifier: ^1.4.0
+        version: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@yudiel/react-qr-scanner':
+        specifier: ^2.0.8
+        version: 2.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       axios:
         specifier: ^1.7.7
         version: 1.7.7
@@ -856,8 +865,17 @@ packages:
     peerDependencies:
       react: ^18 || ^19
 
+  '@types/dom-webcodecs@0.1.13':
+    resolution: {integrity: sha512-O5hkiFIcjjszPIYyUSyvScyvrBoV3NOEEZx/pMlsu44TKzWNkLVBBxnxJz42in5n3QIolYOcBYFCPZZ0h8SkwQ==}
+
+  '@types/emscripten@1.39.13':
+    resolution: {integrity: sha512-cFq+fO/isvhvmuP/+Sl4K4jtU6E23DoivtbO4r50e3odaxAiVdbfSYRDdJ4gCdxx+3aRjhphS5ZMwIH4hFy/Cw==}
+
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
+
+  '@types/google.maps@3.58.1':
+    resolution: {integrity: sha512-X9QTSvGJ0nCfMzYOnaVs/k6/4L+7F5uCS+4iUmkLEls6J9S/Phv+m/i3mDeyc49ZBgwab3EFO1HEoBY7k98EGQ==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -931,10 +949,22 @@ packages:
     resolution: {integrity: sha512-0/TdC3aeRAsW7MDvYRwEc1Uwm0TIBfzjPFgg60UU2Haj5qsCs9cc3zNgY71edqE3LbWfF/WoZQd3lJoDXFQpag==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@vis.gl/react-google-maps@1.4.0':
+    resolution: {integrity: sha512-M2pW1NjLGlT/HAMqtd3vWPfrlPh9wgcxVlnSmwCtmEJYzNV9ihiUz1awp7LHzsDoJ2XV0DuD4bwmnElKbxt9Ug==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
   '@vitejs/plugin-react-swc@3.7.1':
     resolution: {integrity: sha512-vgWOY0i1EROUK0Ctg1hwhtC3SdcDjZcdit4Ups4aPkDcB1jYhmo+RMYWY87cmXMhvtD5uf8lV89j2w16vkdSVg==}
     peerDependencies:
       vite: ^4 || ^5
+
+  '@yudiel/react-qr-scanner@2.0.8':
+    resolution: {integrity: sha512-/7WHsdC1a/Z909J2zZxqgpUQ1iI554fZxIagucH/tFu1MhZkNIeykYI1OdZgDEwV4CzuSi+h90wwNrhmETcmRw==}
+    peerDependencies:
+      react: ^17 || ^18
+      react-dom: ^17 || ^18
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -997,6 +1027,9 @@ packages:
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  barcode-detector@2.2.11:
+    resolution: {integrity: sha512-N50XZ6Rav2sxTgHXOc38/mkpVJMan11GZ8Yqi1pPMZpTJSXuZ/FpIee6OtLehZX/Vs4ZOzGbp1DgXzFCfKggWA==}
 
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -1668,6 +1701,9 @@ packages:
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
 
+  sdp@3.2.0:
+    resolution: {integrity: sha512-d7wDPgDV3DDiqulJjKiV2865wKsJ34YI+NDREbm+FySq6WuKOikwyNQcm+doLAZ1O6ltdO0SeKle2xMpN3Brgw==}
+
   semver@7.6.3:
     resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
@@ -1855,6 +1891,10 @@ packages:
     resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
     engines: {node: '>=0.10.0'}
 
+  webrtc-adapter@9.0.1:
+    resolution: {integrity: sha512-1AQO+d4ElfVSXyzNVTOewgGT/tAomwwztX/6e3totvyyzXPvXIIuUUjAmyZGbKBKbZOXauuJooZm3g6IuFuiNQ==}
+    engines: {node: '>=6.0.0', npm: '>=3.10.0'}
+
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
@@ -1883,6 +1923,9 @@ packages:
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
+  zxing-wasm@1.2.14:
+    resolution: {integrity: sha512-UaYfzSmFPIEmYDt/KyPvs/H02t8jO470BBFHUIlvtmloAm8f2zdAmOL93iWYQ5QYfSnTyFPg0yzZwznlBjfg4A==}
 
 snapshots:
 
@@ -2463,7 +2506,13 @@ snapshots:
       '@tanstack/query-core': 5.59.16
       react: 18.3.1
 
+  '@types/dom-webcodecs@0.1.13': {}
+
+  '@types/emscripten@1.39.13': {}
+
   '@types/estree@1.0.6': {}
+
+  '@types/google.maps@3.58.1': {}
 
   '@types/json-schema@7.0.15': {}
 
@@ -2563,12 +2612,26 @@ snapshots:
       '@typescript-eslint/types': 8.8.1
       eslint-visitor-keys: 3.4.3
 
+  '@vis.gl/react-google-maps@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@types/google.maps': 3.58.1
+      fast-deep-equal: 3.1.3
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@vitejs/plugin-react-swc@3.7.1(vite@5.4.8(@types/node@22.7.5))':
     dependencies:
       '@swc/core': 1.7.35
       vite: 5.4.8(@types/node@22.7.5)
     transitivePeerDependencies:
       - '@swc/helpers'
+
+  '@yudiel/react-qr-scanner@2.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      barcode-detector: 2.2.11
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      webrtc-adapter: 9.0.1
 
   acorn-jsx@5.3.2(acorn@8.12.1):
     dependencies:
@@ -2629,6 +2692,11 @@ snapshots:
       - debug
 
   balanced-match@1.0.2: {}
+
+  barcode-detector@2.2.11:
+    dependencies:
+      '@types/dom-webcodecs': 0.1.13
+      zxing-wasm: 1.2.14
 
   binary-extensions@2.3.0: {}
 
@@ -3269,6 +3337,8 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
+  sdp@3.2.0: {}
+
   semver@7.6.3: {}
 
   shebang-command@2.0.0:
@@ -3440,6 +3510,10 @@ snapshots:
 
   void-elements@3.1.0: {}
 
+  webrtc-adapter@9.0.1:
+    dependencies:
+      sdp: 3.2.0
+
   which@2.0.2:
     dependencies:
       isexe: 2.0.0
@@ -3463,3 +3537,7 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zod@3.23.8: {}
+
+  zxing-wasm@1.2.14:
+    dependencies:
+      '@types/emscripten': 1.39.13

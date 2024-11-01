@@ -6,6 +6,8 @@ import LoginView from "@/modules/auth/login/LoginView.tsx";
 import AuthLayout from "@/layouts/AuthLayout.tsx";
 import RegisterView from "@/modules/auth/register/RegisterView.tsx";
 import AboutUsView from "@/modules/about-us/AboutUsView.tsx";
+import HowToParticipateView from "@/modules/how-to-participate/HowToParticipateView";
+import PlayView from "@/modules/play/PlayView.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
 			{
 				path: "/about-us",
 				element: <AboutUsView />,
+			},
+			{
+				path: "/how-to-participate",
+				element: <HowToParticipateView />,
+			},
+			{
+				path: "/play",
+				element: <PlayView />,
 			},
 		],
 	},

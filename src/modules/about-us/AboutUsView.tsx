@@ -158,6 +158,7 @@ const AboutUsView = () => {
                 className="mb-16 container mx-auto px-4"
                 initial={{scale: 0}}
                 whileInView={{scale: 1}}
+                viewport={{once: true}}
                 transition={{
                     duration: 0.5,
                     ease: "easeOut",
