@@ -8,6 +8,8 @@ import RegisterView from "@/modules/auth/register/RegisterView.tsx";
 import AboutUsView from "@/modules/about-us/AboutUsView.tsx";
 import HowToParticipateView from "@/modules/how-to-participate/HowToParticipateView";
 import PlayView from "@/modules/play/PlayView.tsx";
+import {Toaster} from "@/components/ui/toaster.tsx";
+import RewardsView from "@/modules/rewards/RewardsView.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
 				path: "/play",
 				element: <PlayView />,
 			},
+			{
+				path: "/rewards",
+				element: <RewardsView />
+			}
 		],
 	},
 	{
@@ -57,6 +63,7 @@ const Wrapper = () => {
 	return (
 		<>
 			<QueryClientProvider client={queryClient}>
+				<Toaster />
 				<RouterProvider router={router}></RouterProvider>
 			</QueryClientProvider>
 		</>

@@ -1,24 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 
-const HowToParicipateView = () => {
+const HowToParticipateView = () => {
 	return (
-		<section className={"py-4 sm:px-10 container mx-auto"}>
-			<motion.h1
-				initial={{ scale: 0 }}
-				whileInView={{ scale: 1 }}
-				viewport={{ once: true }}
-				transition={{
-					duration: 0.7,
-					ease: "easeOut",
-					type: "spring",
-					stiffness: 100,
-				}}
-				className="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#E4252A]"
+		<section className={"py-4 container mx-auto px-4 md:px-20"}>
+			<h1
+
+				className="text-3xl font-bold  mb-8"
 			>
 				How To Participate
-			</motion.h1>
+			</h1>
 			<ul className="py-8 space-y-6">
 				<li className="">
 					<h2 className="text-xl font-semibold text-pretty">Step 1. Ready</h2>
@@ -54,16 +45,22 @@ const HowToParicipateView = () => {
 			</ul>
 
 			<div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start items-center py-8">
-				<Button size="lg" className="neo-wrap neo-wrap-btn w-[270px]">
-					Start Collecting
-				</Button>
-				<Button
-					size="lg"
-					variant="outline"
-					className="space-x-2 neo-wrap neo-wrap-btn w-[270px]"
-				>
-					<span>Check the rewards</span>
-				</Button>
+
+				<NavLink to={'/play'}>
+					<Button size="lg" className="neo-wrap neo-wrap-btn w-[270px]">
+						Start Collecting
+					</Button>
+				</NavLink>
+
+				<NavLink to={'/rewards'}>
+					<Button
+						size="lg"
+						variant="outline"
+						className="space-x-2 neo-wrap neo-wrap-btn w-[270px]"
+					>
+						<span>Check the rewards</span>
+					</Button>
+				</NavLink>
 			</div>
 
 			<div className="py-8">
@@ -78,4 +75,4 @@ const HowToParicipateView = () => {
 	);
 };
 
-export default HowToParicipateView;
+export default HowToParticipateView;

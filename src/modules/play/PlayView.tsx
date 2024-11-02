@@ -26,15 +26,15 @@ const PlayView = () => {
 
     return (
         <section className={'container h-full mx-auto px-4 flex flex-col'}>
-            <div className={' py-8 w-full mb-auto'}>
-                <div className={'w-full mx-auto sm:w-[600px] aspect-video resize-none'}>
+            <div className={' py-8 w-full grow mb-auto'}>
+                <div className={'w-full mx-auto sm:w-[600px] h-full resize-none'}>
                     <APIProvider apiKey={gKey}>
                         <Map
                             mapId="CARBON_KINN_SIN"
                             defaultCenter={{
                                 lat: 16.85248359012036, lng: 96.17384336748503
                             }}
-                            defaultZoom={11}
+                            defaultZoom={12}
                             mapTypeControl={false}
                             streetViewControl={false}
                             fullscreenControl={false}
@@ -48,7 +48,7 @@ const PlayView = () => {
                     </APIProvider>
                 </div>
             </div>
-            <div className={'pb-[15%] flex sm:hidden'}>
+            <div className={'pb-[10%] flex sm:hidden grow-0'}>
                 <Drawer snapPoints={[1]} fadeFromIndex={0}>
                     <DrawerTrigger asChild={true}>
                         <Button size={'lg'} className={
@@ -71,7 +71,7 @@ const PlayView = () => {
                 {/*<Scanner onScan={(data) => console.log(data)}/>*/}
             </div>
 
-            <div className={'pb-[15%]  hidden sm:flex'}>
+            <div className={'pb-[15%]  hidden sm:flex grow-0'}>
                 <Dialog>
                     <DialogTrigger asChild={true}>
                         <Button size={'lg'} className={

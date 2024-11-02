@@ -62,15 +62,15 @@ const AboutUsView = () => {
     }
 
     return (
-        <section className={'py-4'}>
+        <section className={'py-4 container mx-auto px-4 md:px-20'}>
 
             <motion.div
-                className="mb-16 container mx-auto px-4"
+                className="mb-16"
                 initial="hidden"
                 animate="visible"
                 variants={fadeIn}
             >
-                <h2 className="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#E4252A]">
+                <h2 className="text-3xl font-bold mb-8 ">
                     Our Mission</h2>
                 <h2 className="text-3xl font-semibold mb-6 text-blue-600"></h2>
                 <p className="mb-4 text-lg leading-relaxed text-gray-700">
@@ -86,17 +86,19 @@ const AboutUsView = () => {
             </motion.div>
 
             <motion.div
-                className="mb-16 container mx-auto px-4"
+                className="mb-16 "
             >
-                <h2 className="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#E4252A]">Environmental
+                <h2 className="text-3xl font-bold mb-8">Environmental
                     Benefits</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid lg:grid-cols-3 gap-6">
                     <motion.div
                         initial={{scale: 0}}
                         whileInView={{scale: 1}}
                         viewport={{once: true}}
-                        transition={cardTransition}>
-                        <Card className="bg-green-100 neo-wrap hover:scale-105 duration-300 ease-in-out">
+                        transition={cardTransition}
+                        className={'flex-grow'}
+                    >
+                        <Card className="h-full bg-green-100 neo-wrap hover:scale-105 duration-300 ease-in-out">
                             <CardHeader>
                                 <CardTitle className="flex items-center text-green-700">
                                     <Leaf className="mr-2"/>
@@ -115,9 +117,10 @@ const AboutUsView = () => {
                         initial={{scale: 0}}
                         whileInView={{scale: 1}}
                         viewport={{once: true}}
-                        transition={cardTransition}>
-
-                        <Card className="bg-blue-100 neo-wrap hover:scale-105 duration-300 ease-in-out">
+                        transition={cardTransition}
+                        className={'flex-grow'}
+                    >
+                        <Card className="h-full bg-blue-100 neo-wrap hover:scale-105 duration-300 ease-in-out">
                             <CardHeader>
                                 <CardTitle className="flex items-center text-blue-700">
                                     <Wind className="mr-2"/>
@@ -136,8 +139,10 @@ const AboutUsView = () => {
                         initial={{scale: 0}}
                         whileInView={{scale: 1}}
                         viewport={{once: true}}
-                        transition={cardTransition}>
-                        <Card className="bg-teal-100 neo-wrap hover:scale-105 duration-300 ease-in-out">
+                        transition={cardTransition}
+                        className={'flex-grow'}
+                    >
+                        <Card className="h-full bg-teal-100 neo-wrap hover:scale-105 duration-300 ease-in-out">
                             <CardHeader>
                                 <CardTitle className="flex items-center text-teal-700">
                                     <Droplet className="mr-2"/>
@@ -155,7 +160,7 @@ const AboutUsView = () => {
             </motion.div>
 
             <motion.div
-                className="mb-16 container mx-auto px-4"
+                className="mb-16"
                 initial={{scale: 0}}
                 whileInView={{scale: 1}}
                 viewport={{once: true}}
@@ -166,7 +171,7 @@ const AboutUsView = () => {
                     stiffness: 60,
                 }}
             >
-                <h2 className="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#E4252A]">
+                <h2 className="text-3xl font-bold text-center mb-8">
                     Contact Us</h2>
                 <Form {...form}>
                     <form
@@ -242,7 +247,7 @@ const AboutUsView = () => {
             </motion.div>
 
 
-            <div className="mb-16 container mx-auto px-4">
+            <div className="mb-16">
                 <motion.div
                     initial={{scale: 0}}
                     whileInView={{scale: 1}}
