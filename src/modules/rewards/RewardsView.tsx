@@ -75,7 +75,8 @@ const RewardsView = () => {
                                     <CardTitle className="flex items-center justify-between">
                                         <div>Tier {tier.tier}</div>
                                     </CardTitle>
-                                    <CardDescription className="text-dark font-semibold">{tier.title} <Badge
+                                    <CardDescription className="text-dark font-semibold">{tier.title}
+                                        <Badge
                                         variant="secondary" className="mb-2 bg-accent">
                                         {tier.stickers} Stickers
                                     </Badge></CardDescription>
