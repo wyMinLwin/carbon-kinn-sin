@@ -10,11 +10,11 @@ const DefaultLayout = () => {
 
     }, [location]);
     return (
-        <div className='relative font-quick bg-light text-dark h-svh w-svw z-10 flex flex-col overflow-hidden'>
+        <div className='relative bg-light text-dark h-svh w-svw z-10 flex flex-col overflow-hidden'>
             <div className={'grow-0'}>
                 <Navbar/>
             </div>
-            <main className={'grow overflow-y-auto'} ref={mainRef}>
+            <main className={'grow scroll-smooth overflow-y-auto'} ref={mainRef}>
                 <Outlet/>
             </main>
         </div>

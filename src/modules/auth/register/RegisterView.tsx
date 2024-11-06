@@ -67,7 +67,7 @@ const RegisterView = () => {
                         <Form {...form}>
                             <form
                                 onSubmit={form.handleSubmit(onSubmit)}
-                                className="w-full space-y-5"
+                                className="w-full flex flex-col gap-3"
                             >
                                 <FormField
                                     control={form.control}
@@ -77,6 +77,7 @@ const RegisterView = () => {
                                             <FormLabel>Name</FormLabel>
                                             <FormControl>
                                                 <Input
+                                                    className={'neo-wrap neo-wrap-form'}
                                                     placeholder="Enter your name..."
                                                     disabled={isLoading}
                                                     {...field}
@@ -94,6 +95,7 @@ const RegisterView = () => {
                                             <FormLabel>Email</FormLabel>
                                             <FormControl>
                                                 <Input
+                                                    className={'neo-wrap neo-wrap-form'}
                                                     placeholder="Enter your email..."
                                                     disabled={isLoading}
                                                     {...field}
@@ -111,6 +113,7 @@ const RegisterView = () => {
                                             <FormLabel>Phone</FormLabel>
                                             <FormControl>
                                                 <Input
+                                                    className={'neo-wrap neo-wrap-form'}
                                                     placeholder="Enter your phone..."
                                                     disabled={isLoading}
                                                     {...field}
@@ -129,7 +132,7 @@ const RegisterView = () => {
                                             <FormControl>
                                                 <div className="relative">
                                                     <Input
-
+                                                        className={'neo-wrap neo-wrap-form'}
                                                         type={showPassword ? 'text' : "password"}
                                                         placeholder="Enter your password..."
                                                         disabled={isLoading}
@@ -161,7 +164,7 @@ const RegisterView = () => {
                                 />
                                 <Button
                                     type="submit"
-                                    className="w-full"
+                                    className="w-full neo-wrap neo-wrap-btn font-medium mt-4"
                                     disabled={isLoading}
                                 >
                                     {isLoading && <UpdateIcon className="mr-2 h-4 w-4 animate-spin"/>}
@@ -177,7 +180,7 @@ const RegisterView = () => {
                         </div>
 
                         <div>
-                            <NavLink to={'/auth/login'} className="text-sm text-[#ffc300] hover:text-[#d3a203]">Already
+                            <NavLink to={'/auth/login'} className="text-[#0f8feb] font-medium text-sm hover:underline">Already
                                 have an account? </NavLink>
                         </div>
                     </div>

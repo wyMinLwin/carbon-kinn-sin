@@ -15,7 +15,7 @@ const HowToParticipateView = () => {
 					<h2 className="text-xl font-semibold text-pretty">Step 1. Ready</h2>
 					<p className="text-lg font-medium text-pretty">
 						Go to collect page or{" "}
-						<NavLink className={"underline"} to={"/"}>
+						<NavLink className={"underline"} to={"/play"}>
 							Click here
 						</NavLink>
 						.

@@ -8,6 +8,7 @@ import {
     ScanIcon,
 } from "lucide-react";
 import {NavLink} from "react-router-dom";
+import ReportDamagedStickersDialog from "@/components/ReportDamagedStickersDialog.tsx";
 
 const steps = [
     {icon: MapPinIcon, text: "Find stickers around the city"},
@@ -38,7 +39,7 @@ const HomeView = () => {
                     whileInView={{opacity: 1}}
                     viewport={{once: true}}
                     transition={{duration: 2, delay: 0.3}}
-                    className="text-lg text-center max-w-2xl mx-auto"
+                    className="text-lg text-center max-w-3xl mx-auto"
                 >
                     Our campaign aims to raise awareness about carbon neutrality and
                     encourage sustainable practices in our city. By collecting stickers
@@ -139,14 +140,16 @@ const HomeView = () => {
                             Start Collecting
                         </Button>
                     </NavLink>
-                    <Button
-                        size="lg"
-                        variant="outline"
-                        className="space-x-2 neo-wrap neo-wrap-btn w-[270px]"
-                    >
-                        <AlertTriangle size={20}/>
-                        <span>Report Damaged Sticker</span>
-                    </Button>
+                    <ReportDamagedStickersDialog>
+                        <Button
+                            size="lg"
+                            variant="outline"
+                            className="space-x-2 neo-wrap neo-wrap-btn w-[270px]"
+                        >
+                            <AlertTriangle size={20}/>
+                            <span>Report Damaged Sticker</span>
+                        </Button>
+                    </ReportDamagedStickersDialog>
                 </div>
                 <div className={'flex justify-center items-center mt-6'}>
                     <p className={' text-lg font-medium text-pretty '}>

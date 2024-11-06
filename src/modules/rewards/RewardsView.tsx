@@ -2,7 +2,6 @@ import {
     Card,
     CardHeader,
     CardTitle,
-    CardDescription,
     CardContent
 } from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge";
@@ -40,12 +39,12 @@ const specialAchievements = [
     {
         title: "Limited Edition Stickers",
         description: "Find special stickers at specific locations or events.",
-        icon: <MapPinIcon className="w-8 h-8 text-red-500" />
+        icon: <MapPinIcon className="w-8 h-8 text-red-500"/>
     },
     {
         title: "Riddle Solving",
         description: "Solve riddles to find hidden stickers and earn the 'Zero Carbon Detective' badge.",
-        icon: <BrainIcon className="w-8 h-8 text-yellow-500" />
+        icon: <BrainIcon className="w-8 h-8 text-yellow-500"/>
     },
 
 ]
@@ -75,11 +74,12 @@ const RewardsView = () => {
                                     <CardTitle className="flex items-center justify-between">
                                         <div>Tier {tier.tier}</div>
                                     </CardTitle>
-                                    <CardDescription className="text-dark font-semibold">{tier.title}
+                                    <div className=" text-sm text-dark font-semibold">{tier.title}
                                         <Badge
-                                        variant="secondary" className="mb-2 bg-accent">
-                                        {tier.stickers} Stickers
-                                    </Badge></CardDescription>
+                                            variant="secondary"
+                                            className=" ml-2  shadow-sm border-[1px] border-dark/5   bg-accent">
+                                            {tier.stickers} Stickers
+                                        </Badge></div>
                                 </CardHeader>
                                 <CardContent className="">
                                     <p className="text-sm text-gray-600 mb-2">{tier.description}</p>

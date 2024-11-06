@@ -141,7 +141,7 @@ const LoginView = () => {
                     </div>
 
                     <div>
-                        <NavLink to={'/auth/register'} className="text-sm text-[#ffc300] hover:text-[#d3a203]">New to
+                        <NavLink to={'/auth/register'} className="text-[#0f8feb] font-medium text-sm hover:underline">New to
                             Carbon Kinn Sin? </NavLink>
                     </div>
                 </div>

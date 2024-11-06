@@ -10,6 +10,7 @@ import HowToParticipateView from "@/modules/how-to-participate/HowToParticipateV
 import PlayView from "@/modules/play/PlayView.tsx";
 import {Toaster} from "@/components/ui/toaster.tsx";
 import RewardsView from "@/modules/rewards/RewardsView.tsx";
+import PartnershipsView from "@/modules/partnerships/PartnershipsView.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
 			{
 				path: "/about-us",
 				element: <AboutUsView />,
+			},
+			{
+				path: "/partnerships",
+				element: <PartnershipsView />
 			},
 			{
 				path: "/how-to-participate",
