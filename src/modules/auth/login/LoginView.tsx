@@ -17,6 +17,9 @@ import {Button} from "@/components/ui/button"
 import {NavLink} from "react-router-dom";
 import {UpdateIcon} from "@radix-ui/react-icons";
 import {EyeIcon, EyeOffIcon} from "lucide-react";
+import api from "@/api";
+import {toast} from "@/hooks/use-toast.ts";
+import useAuth from "@/hooks/useAuth.ts";
 
 const FormSchema = z.object({
     email: z.string().email(),
@@ -26,6 +29,27 @@ const FormSchema = z.object({
 })
 
 const LoginView = () => {
+
+    const { userLogin } = useAuth()
+
+    const { mutate:login } = api.auth.login.useMutation(
+        {
+            onMutate: () => setIsLoading(true),
+            onSuccess: (data) => {
+                userLogin(data.access)
+            },
+            onError: () => {
+                toast({
+                    title: "Login Failed!",
+                    description: "Please try again later",
+                    variant: "destructive"
+                })
+            },
+            onSettled: () => {
+                setIsLoading(false)
+            }
+        }
+    )
     const [showPassword,setShowPassword] = useState(false)
     const {blocks} = useBlockAnimation()
     const [isLoading, setIsLoading] = useState(false)
@@ -38,12 +62,14 @@ const LoginView = () => {
     })
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
+
         // loginUser(data)
-        setIsLoading(true)
-        console.log(data)
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 2000)
+        // setIsLoading(true)
+        // console.log(data)
+        // setTimeout(() => {
+        //     setIsLoading(false)
+        // }, 2000)
+        login(data)
     }
 
     return (

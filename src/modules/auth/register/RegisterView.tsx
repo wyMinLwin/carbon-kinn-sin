@@ -17,6 +17,8 @@ import {Button} from "@/components/ui/button"
 import {NavLink} from "react-router-dom";
 import {UpdateIcon} from "@radix-ui/react-icons";
 import {EyeIcon, EyeOffIcon} from "lucide-react";
+import api from "@/api";
+import {toast} from "@/hooks/use-toast.ts";
 
 const FormSchema = z.object({
     name: z.string().regex(/^[a-zA-Z\s]+$/, {message: "Enter a valid name."}),
@@ -24,12 +26,31 @@ const FormSchema = z.object({
     password: z.string().min(4, {
         message: "Password must contain at least 4 characters.",
     }),
-    phone: z.string({required_error: "Phone Required."})
-        .regex(/^\+?\d{10,}$/, {message: "Enter a valid phone number."}),
+    ph_num: z.string({required_error: "Phone Required."})
+        .regex(/^\+959\d{9}/, {message: "Phone number should start with +959."}),
 
 })
 
 const RegisterView = () => {
+
+    const {mutate: register} = api.auth.register.useMutation(
+        {
+            onMutate: () => setIsLoading(true),
+            onSuccess: (data) => {
+                console.log(data)
+            },
+            onError: () => {
+                toast({
+                    title: "Registration Failed!",
+                    description: "Please try again later",
+                    variant: "destructive"
+                })
+            },
+            onSettled: () => {
+                setIsLoading(false)
+            }
+        }
+    )
     const [showPassword, setShowPassword] = useState(false)
     const {blocks} = useBlockAnimation()
     const [isLoading, setIsLoading] = useState(false)
@@ -42,11 +63,7 @@ const RegisterView = () => {
     })
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
-        setIsLoading(true)
-        console.log(data)
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 2000)
+        register(data)
     }
 
     return (
@@ -107,7 +124,7 @@ const RegisterView = () => {
                                 />
                                 <FormField
                                     control={form.control}
-                                    name="phone"
+                                    name="ph_num"
                                     render={({field}) => (
                                         <FormItem>
                                             <FormLabel>Phone</FormLabel>
@@ -180,7 +197,7 @@ const RegisterView = () => {
                         </div>
 
                         <div>
-                            <NavLink to={'/auth/login'} className="text-[#0f8feb] font-medium text-sm hover:underline">Already
+                            <NavLink to={'/auth/index'} className="text-[#0f8feb] font-medium text-sm hover:underline">Already
                                 have an account? </NavLink>
                         </div>
                     </div>

@@ -1,12 +1,16 @@
 import axios from "axios";
 import type { AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import Cookies from "js-cookie";
 
-axios.defaults.baseURL = 'https://dummyjson.com/';
+axios.defaults.baseURL = 'http://989f-209-97-165-215.ngrok-free.app/api/';
 
 // Add a request interceptor
 axios.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
+      const token = Cookies.get('react-template-app-token');
+      if (token) {
+          config.headers!.Authorization = `Bearer ${token}`;
+      }
     if (token) {
       config.headers!.Authorization = `Bearer ${token}`;
     }
@@ -24,8 +28,8 @@ axios.interceptors.response.use(
   },
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Redirect to login page if unauthorized
-      window.location.href = '/login';
+      // Redirect to index page if unauthorized
+      window.location.href = '/index';
     }
     return Promise.reject(error);
   }

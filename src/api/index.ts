@@ -1,10 +1,13 @@
-import * as test from "./test";
+// import * as test from "./test";
+import * as auth from "./auth";
 
 class API {
-	test: typeof test;
+	// test: typeof test;
+	auth: typeof auth;
 
 	constructor() {
-		this.test = test;
+		// this.test = test;
+		this.auth = auth;
 	}
 }
 
