@@ -6,6 +6,7 @@ const links = [
 	{ title: "Home", to: "/" },
 	{ title: "Collect", to: "/play" },
 	{ title: "About Us", to: "/about-us" },
+	{ title: "Partnerships", to: "/partnerships" },
 	{ title: "How To Participate", to: "/how-to-participate" },
 	{ title: "Rewards", to: "/rewards" },
 ];

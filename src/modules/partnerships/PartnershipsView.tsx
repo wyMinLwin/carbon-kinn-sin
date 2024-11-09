@@ -53,34 +53,7 @@ const PartnershipsView = () => {
                             </CardContent>
                         </Card>
                     </motion.a>
-                    <motion.a
-                        initial={{opacity: 0, scale: 0}}
-                        whileInView={{opacity: 1, scale: 1}}
-                        transition={{duration: 0.8}}
-                        viewport={{once: true}} href={'https://vercel.com/'} className={'flex-grow'} target={'_blank'}>
-                        <Card className={'neo-wrap h-full'}>
-                            <CardHeader className={'pb-3'}>
-                                <CardTitle>
-                                    <img
-                                        src={"https://cdn.worldvectorlogo.com/logos/vercel.svg"}
-                                        alt={'vercel logo'} width={60} height={60}/>
-                                    <p className={'mt-3'}>
-                                        Vercel
-                                    </p>
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <Badge
-                                    variant="secondary"
-                                    className=" shadow-sm border-[1px] border-dark/5 mb-3  bg-accent">
-                                    Services
-                                </Badge>
-                                <CardDescription className={'text-dark/80 font-medium'}>
-                                    Your complete platform for the web.
-                                </CardDescription>
-                            </CardContent>
-                        </Card>
-                    </motion.a>
+
                 </div>
             </div>
         </section>

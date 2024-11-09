@@ -79,6 +79,17 @@ const HomeView = () => {
             </motion.h2>
 
             <motion.div
+                initial={{opacity: 0}}
+                whileInView={{opacity: 1}}
+                viewport={{once: true}}
+                transition={{duration: 2, delay: 0.3}}
+                className={'flex justify-center items-center mt-3'}>
+                <NavLink to={'/partnerships'} className={'underline text-lg font-medium '}>
+                    See our partners
+                </NavLink>
+            </motion.div>
+
+            <motion.div
                 initial={{scale: 0}}
                 whileInView={{scale: 1}}
                 viewport={{once: true}}
@@ -97,6 +108,7 @@ const HomeView = () => {
                     </Button>
                 </NavLink>
             </motion.div>
+
 
             <div className="py-16">
                 <div className="container mx-auto px-4">
