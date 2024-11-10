@@ -11,6 +11,7 @@ import PlayView from "@/modules/play/PlayView.tsx";
 import {Toaster} from "@/components/ui/toaster.tsx";
 import RewardsView from "@/modules/rewards/RewardsView.tsx";
 import PartnershipsView from "@/modules/partnerships/PartnershipsView.tsx";
+import ProfileView from "@/modules/profile/ProfileView.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
 			{
 				path: "/rewards",
 				element: <RewardsView />
+			},
+			{
+				path: "/profile",
+				element: <ProfileView />
 			}
 		],
 	},

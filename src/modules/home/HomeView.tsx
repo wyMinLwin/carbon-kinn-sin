@@ -76,6 +76,7 @@ const HomeView = () => {
             >
                 <span>Find, Collect, and Win!</span>
                 <span>Join the Zero Carbon Movement</span>
+
             </motion.h2>
 
             <motion.div
@@ -83,8 +84,12 @@ const HomeView = () => {
                 whileInView={{opacity: 1}}
                 viewport={{once: true}}
                 transition={{duration: 2, delay: 0.3}}
-                className={'flex justify-center items-center mt-3'}>
-                <NavLink to={'/partnerships'} className={'underline text-lg font-medium '}>
+                className={'flex flex-col justify-center items-center mt-3'}>
+                <div className={'text-lg font-medium'}>
+                    Proudly developed by&nbsp;
+                    <img src={'./CodeMal.jpg'} alt={'CodeMal'} className={'w-24 h-auto rounded-sm mx-auto'}/>
+                </div>
+                <NavLink to={'/partnerships'} className={'underline text-lg font-medium mt-4'}>
                     See our partners
                 </NavLink>
             </motion.div>
@@ -172,6 +177,7 @@ const HomeView = () => {
                     </p>
                 </div>
             </motion.div>
+
 
             <footer className={"text-center text-sm text-dark/50"}>
                 &copy; 2024 Carbon Kinn Sin x Code Mal reserved everything

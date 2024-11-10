@@ -9,6 +9,7 @@ const links = [
 	{ title: "Partnerships", to: "/partnerships" },
 	{ title: "How To Participate", to: "/how-to-participate" },
 	{ title: "Rewards", to: "/rewards" },
+	{ title: "Profile", to: "/profile" },
 ];
 
 const Navbar = () => {

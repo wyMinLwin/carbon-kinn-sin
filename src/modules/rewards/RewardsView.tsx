@@ -4,49 +4,49 @@ import {
     CardTitle,
     CardContent
 } from "@/components/ui/card"
-import {Badge} from "@/components/ui/badge";
-import {BrainIcon, DropletsIcon, LeafyGreenIcon, MapPinIcon, WindIcon} from "lucide-react";
+import {MapPinIcon} from "lucide-react";
 import {motion} from "framer-motion";
 
 const rewardTiers = [
     {
-        tier: 1,
-        title: "Completion of 1 Theme",
-        stickers: 5,
-        rewards: ["Digital Badge", "Sticker Pack"],
-        description: "Complete any one theme by collecting all five stickers.",
-        icon: <LeafyGreenIcon className="w-12 h-12 text-green-500"/>
+        title: "Completion of 3 Stickers",
+        stickers: 3,
+        rewards: ["Respective sticker pack"],
+        description: "Complete by collecting any 3 stickers."
     },
     {
-        tier: 2,
-        title: "Completion of 3 Themes",
+        title: "Completion of 6 Stickers",
+        stickers: 6,
+        rewards: ["Pouch"],
+        description: "Complete by collecting any 6 stickers."
+    },
+    {
+        title: "Completion of 9 Stickers",
+        stickers: 9,
+        rewards: ["Purple upcycled things"],
+         description: "Complete by collecting any 9 stickers."
+    },
+    {
+        title: "Completion of 12 Stickers",
+        stickers: 12,
+        rewards: ["Tote bag"],
+         description: "Complete by collecting any 12 stickers."
+    },
+    {
+        title: "Completion of 15 Stickers",
         stickers: 15,
-        rewards: ["Eco-friendly Tote Bag or Water Bottle", "Certificate"],
-        description: "Show your commitment to the zero-carbon lifestyle.",
-        icon: <DropletsIcon className="w-12 h-12 text-blue-500"/>
+        rewards: ["Water bottle"],
+         description: "Complete by collecting any 15 stickers."
     },
-    {
-        tier: 3,
-        title: "Completion of All Themes",
-        stickers: 25,
-        rewards: ["Exclusive 'Zero Carbon Hero' Gift Set"],
-        description: "Become a Zero Carbon Hero and receive a unique gift set.",
-        icon: <WindIcon className="w-12 h-12 text-purple-500"/>
-    }
+
 ]
 
 const specialAchievements = [
     {
-        title: "Limited Edition Stickers",
-        description: "Find special stickers at specific locations or events.",
+        title: "Special Stickers",
+        description: "Find special stickers at specific locations",
         icon: <MapPinIcon className="w-8 h-8 text-red-500"/>
     },
-    {
-        title: "Riddle Solving",
-        description: "Solve riddles to find hidden stickers and earn the 'Zero Carbon Detective' badge.",
-        icon: <BrainIcon className="w-8 h-8 text-yellow-500"/>
-    },
-
 ]
 
 const RewardsView = () => {
@@ -55,7 +55,7 @@ const RewardsView = () => {
             <div className="py-16">
                 <h2 className="text-2xl font-semibold mb-4 ">Rewards</h2>
                 <div className="grid gap-6 lg:grid-cols-3">
-                    {rewardTiers.map((tier) => (
+                    {rewardTiers.map((tier,index) => (
                         <motion.div
                             initial={{scale: 0}}
                             whileInView={{scale: 1}}
@@ -66,20 +66,15 @@ const RewardsView = () => {
                                 type: "spring",
                                 stiffness: 50,
                             }}
-                            key={tier.tier}
+                            key={index}
                             className={'flex-grow'}
                         >
                             <Card className="h-full overflow-hidden neo-wrap">
                                 <CardHeader className="">
                                     <CardTitle className="flex items-center justify-between">
-                                        <div>Tier {tier.tier}</div>
+                                        <div className=" text-sm text-dark font-semibold">{tier.title}</div>
                                     </CardTitle>
-                                    <div className=" text-sm text-dark font-semibold">{tier.title}
-                                        <Badge
-                                            variant="secondary"
-                                            className=" ml-2  shadow-sm border-[1px] border-dark/5   bg-accent">
-                                            {tier.stickers} Stickers
-                                        </Badge></div>
+
                                 </CardHeader>
                                 <CardContent className="">
                                     <p className="text-sm text-gray-600 mb-2">{tier.description}</p>

@@ -27,7 +27,7 @@ const PartnershipsView = () => {
                     <motion.a
                         initial={{opacity: 0, scale: 0}}
                         whileInView={{opacity: 1, scale: 1}}
-                        transition={{duration: 0.8}}
+                        transition={{duration: 0.4}}
                         viewport={{once: true}}
                         href={'https://codemal.com/'} className={'flex-grow'} target={'_blank'}>
                         <Card className={'neo-wrap h-full'}>
