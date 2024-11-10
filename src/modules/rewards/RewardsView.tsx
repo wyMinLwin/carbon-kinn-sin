@@ -4,7 +4,7 @@ import {
     CardTitle,
     CardContent
 } from "@/components/ui/card"
-import {MapPinIcon} from "lucide-react";
+import {GiftIcon, MapPinIcon, PackageIcon, PackageOpenIcon} from "lucide-react";
 import {motion} from "framer-motion";
 
 const rewardTiers = [
@@ -44,9 +44,25 @@ const rewardTiers = [
 const specialAchievements = [
     {
         title: "Special Stickers",
-        description: "Find special stickers at specific locations",
+        description: "Find special stickers to get mysterious rewards.",
         icon: <MapPinIcon className="w-8 h-8 text-red-500"/>
     },
+    {
+        title: "Collection of 1 theme",
+        description: "Find 1 collection of stickers to get mysterious rewards.",
+        icon: <PackageOpenIcon className="w-8 h-8 text-red-500"/>
+    },
+    {
+        title: "Collection of 2 theme",
+        description: "Find 2 collections of stickers to get mysterious rewards.",
+        icon: <PackageIcon className="w-8 h-8 text-red-500"/>
+    },
+    {
+        title: "Collection of 3 theme",
+        description: "Find 3 collections of stickers to get mysterious rewards.",
+        icon: <GiftIcon className="w-8 h-8 text-red-500"/>
+    },
+
 ]
 
 const RewardsView = () => {
@@ -72,9 +88,8 @@ const RewardsView = () => {
                             <Card className="h-full overflow-hidden neo-wrap">
                                 <CardHeader className="">
                                     <CardTitle className="flex items-center justify-between">
-                                        <div className=" text-sm text-dark font-semibold">{tier.title}</div>
+                                        <div className=" text-dark font-semibold">{tier.title}</div>
                                     </CardTitle>
-
                                 </CardHeader>
                                 <CardContent className="">
                                     <p className="text-sm text-gray-600 mb-2">{tier.description}</p>
@@ -90,11 +105,11 @@ const RewardsView = () => {
                     ))}
                 </div>
                 <div className="py-16">
-                    <h2 className="text-2xl font-semibold mb-4 ">Special Achievements</h2>
+                    <h2 className="text-2xl font-semibold mb-4 ">Mysterious Rewards</h2>
                     <div className="grid gap-6 lg:grid-cols-3">
                         {specialAchievements.map((achievement, index) => (
                             <div key={index} className={'flex-grow'}>
-                                <Card className={'neo-wrap'}>
+                                <Card className={'neo-wrap h-full'}>
                                     <CardHeader>
                                         <CardTitle className="flex items-center gap-2">
                                             {achievement.icon}
