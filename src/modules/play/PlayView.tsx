@@ -38,6 +38,7 @@ const PlayView = () => {
         {lat: 16.82790704174481, lng: 96.1294792265922}, // U htun lin chan lan
         {lat: 16.773148720956296, lng:96.15946971808266}, //sule kyouk tai
         {lat: 16.77449975858058, lng: 96.16169387330089},// pansodan scene gallery
+        {lat: 16.776462, lng: 96.166819},// sar oak sai (won gyi myar yone)
 
     ];//,
 

@@ -1,4 +1,6 @@
 import {Button} from "@/components/ui/button.tsx";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const stickers = [
     {path: './3R/3R.jpg', value: '3R-CKS-1'},
@@ -39,8 +41,17 @@ const ProfileView = () => {
                 <div className={'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full'}>
                     {
                         stickers.map((sticker, index) => (
-                            <img src={sticker.path} key={index} alt={'stickers'} className={'w-full h-auto aspect-square grayscale rounded-md shadow-sm border-[1px]'}
-                            />
+                            <LazyLoadImage
+                                key={index}
+                                alt={'stickers'}
+                                effect="blur"
+                                className={'w-full h-auto aspect-square grayscale rounded-md shadow-sm border-[1px]'}
+                                wrapperProps={{
+                                    style: {transitionDelay: "1s"},
+                                }}
+                                src={sticker.path} />
+                            // <img src={sticker.path} key={index} alt={'stickers'} className={'w-full h-auto aspect-square grayscale rounded-md shadow-sm border-[1px]'}
+                            // />
                         ))
                     }
                 </div>
