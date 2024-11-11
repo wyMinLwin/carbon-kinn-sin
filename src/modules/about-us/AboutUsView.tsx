@@ -5,9 +5,9 @@ import {
     Wind,
     Droplet,
     SendHorizonalIcon,
-    MapPinIcon,
-    PhoneIcon,
-    MailIcon
+    // MapPinIcon,
+    // PhoneIcon,
+    // MailIcon
 } from 'lucide-react'
 import {z} from "zod";
 import {useForm} from "react-hook-form";
@@ -18,6 +18,8 @@ import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {UpdateIcon} from "@radix-ui/react-icons";
 import {Textarea} from "@/components/ui/textarea.tsx";
+import api from "@/api";
+import {toast} from "@/hooks/use-toast.ts";
 
 const cardTransition = {
     duration: 0.35,
@@ -43,6 +45,27 @@ const AboutUsView = () => {
 
     const [isLoading, setIsLoading] = useState(false)
 
+    const {mutate:contact} = api.contactUs.send.useMutation({
+        onMutate: () => {
+          setIsLoading(true)
+
+        },
+        onSuccess: () => {
+            form.reset()
+            toast({
+                title: "Successfully sent!"
+            })
+        },
+        onError: () => {
+            toast({
+                title: "Successfully sent!",
+                variant: 'destructive'
+            })
+        },
+        onSettled: () => {
+            setIsLoading(false)
+        }
+    })
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -54,16 +77,11 @@ const AboutUsView = () => {
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
         // loginUser(data)
-        setIsLoading(true)
-        console.log(data)
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 2000)
+        contact(data);
     }
 
     return (
         <section className={'py-4 container mx-auto px-4 md:px-20'}>
-
             <motion.div
                 className="mb-16"
                 initial="hidden"
@@ -239,7 +257,7 @@ const AboutUsView = () => {
                         >
 
                             Send
-                            {isLoading ? <UpdateIcon className="ml-2 h-4 w-4"/> :
+                            {isLoading ? <UpdateIcon className="ml-2 h-4 w-4 animate-spin"/> :
                                 <SendHorizonalIcon className="ml-2 h-4 w-4"/>}
                         </Button>
                     </form>
@@ -247,33 +265,33 @@ const AboutUsView = () => {
             </motion.div>
 
 
-            <div className="mb-16">
-                <motion.div
-                    initial={{scale: 0}}
-                    whileInView={{scale: 1}}
-                    viewport={{once: true}}
-                    transition={cardTransition}>
-                    <Card className="mx-auto w-full sm:w-[430px] neo-wrap hover:scale-105 duration-300 ease-in-out">
-                        <CardContent className={'p-3 space-y-2.5'}>
-                            <div className={'flex justify-start items-center gap-1.5'}>
-                                <MapPinIcon/> Krung Thonburi, Bangkok, Thailand
-                            </div>
-                            <div className={'flex justify-start items-center gap-1.5'}>
-                                <PhoneIcon/> 00000000000
-                            </div>
-                            <div className={'flex justify-start items-center gap-1.5'}>
-                                <MailIcon/> testing@gmail.com
-                            </div>
+            {/*<div className="mb-16">*/}
+            {/*    <motion.div*/}
+            {/*        initial={{scale: 0}}*/}
+            {/*        whileInView={{scale: 1}}*/}
+            {/*        viewport={{once: true}}*/}
+            {/*        transition={cardTransition}>*/}
+            {/*        <Card className="mx-auto w-full sm:w-[430px] neo-wrap hover:scale-105 duration-300 ease-in-out">*/}
+            {/*            <CardContent className={'p-3 space-y-2.5'}>*/}
+            {/*                <div className={'flex justify-start items-center gap-1.5'}>*/}
+            {/*                    <MapPinIcon/> Krung Thonburi, Bangkok, Thailand*/}
+            {/*                </div>*/}
+            {/*                <div className={'flex justify-start items-center gap-1.5'}>*/}
+            {/*                    <PhoneIcon/> 00000000000*/}
+            {/*                </div>*/}
+            {/*                <div className={'flex justify-start items-center gap-1.5'}>*/}
+            {/*                    <MailIcon/> testing@gmail.com*/}
+            {/*                </div>*/}
 
-                            <div className={'flex justify-center items-center gap-5'}>
-                                <img src={'/fb.svg'} width={30} height={30} alt={'social media'}/>
-                                <img src={'/ig.svg'} width={30} height={30} alt={'social media'}/>
-                                <img src={'/tt.svg'} width={30} height={30} alt={'social media'}/>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </motion.div>
-            </div>
+            {/*                <div className={'flex justify-center items-center gap-5'}>*/}
+            {/*                    <img src={'/fb.svg'} width={30} height={30} alt={'social media'}/>*/}
+            {/*                    <img src={'/ig.svg'} width={30} height={30} alt={'social media'}/>*/}
+            {/*                    <img src={'/tt.svg'} width={30} height={30} alt={'social media'}/>*/}
+            {/*                </div>*/}
+            {/*            </CardContent>*/}
+            {/*        </Card>*/}
+            {/*    </motion.div>*/}
+            {/*</div>*/}
 
 
         </section>

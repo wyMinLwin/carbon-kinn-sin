@@ -16,6 +16,7 @@ import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/
 import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button.tsx";
 import {Input} from "@/components/ui/input.tsx";
+import api from "@/api";
 
 const FormSchema = z.object({
     photo: z.instanceof(File, {message: "Please provide a photo of the damaged sticker"}),
@@ -23,6 +24,21 @@ const FormSchema = z.object({
 })
 const ReportDamagedSticker = ({children}: { children: ReactNode }) => {
     const [isOpen, setIsOpen] = useState(false)
+    const {mutate: report} = api.report.report.useMutation({
+        onSuccess: () => {
+            toast({
+                title: "Sticker reported",
+                description: "Thank you for helping us improve!",
+            })
+        },
+        onError: () => {
+            toast({
+                title: "Failed to sent!",
+                description: "You can only sent one report per hour",
+                variant: 'destructive'
+            })
+        },
+    })
 
     const {toast} = useToast()
     // const { toast } = useToast()
@@ -33,11 +49,9 @@ const ReportDamagedSticker = ({children}: { children: ReactNode }) => {
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
         // loginUser(data)
-        console.log(data)
-        toast({
-            title: "Sticker reported",
-            description: "Thank you for helping us improve!",
-        })
+        // console.log(data)
+        report(data)
+
     }
 
     // try {}

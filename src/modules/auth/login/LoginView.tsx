@@ -14,12 +14,13 @@ import {
 } from "@/components/ui/form"
 import {Input} from "@/components/ui/input"
 import {Button} from "@/components/ui/button"
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {UpdateIcon} from "@radix-ui/react-icons";
 import {EyeIcon, EyeOffIcon} from "lucide-react";
 import api from "@/api";
 import {toast} from "@/hooks/use-toast.ts";
 import useAuth from "@/hooks/useAuth.ts";
+import {useQueryClient} from "@tanstack/react-query";
 
 const FormSchema = z.object({
     email: z.string().email(),
@@ -31,12 +32,18 @@ const FormSchema = z.object({
 const LoginView = () => {
 
     const { userLogin } = useAuth()
+    const navigate = useNavigate();
+    const queryClient = useQueryClient()
 
     const { mutate:login } = api.auth.login.useMutation(
         {
             onMutate: () => setIsLoading(true),
-            onSuccess: (data) => {
+            onSuccess: async (data) => {
                 userLogin(data.access)
+                navigate('/')
+                await queryClient.invalidateQueries({
+                    queryKey: ['verify']
+                })
             },
             onError: () => {
                 toast({

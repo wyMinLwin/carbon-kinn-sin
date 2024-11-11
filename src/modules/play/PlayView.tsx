@@ -7,18 +7,53 @@ import {useToast} from "@/hooks/use-toast.ts";
 import {VisuallyHidden} from "@radix-ui/react-visually-hidden";
 import {Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription} from "@/components/ui/dialog";
 import {Map, Marker} from "@vis.gl/react-maplibre";
-import 'maplibre-gl/dist/maplibre-gl.css'; // See notes below
+import 'maplibre-gl/dist/maplibre-gl.css';
+import api from "@/api";
+import {useQueryClient} from "@tanstack/react-query";
 
 
 const PlayView = () => {
     // const gKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
     const {toast} = useToast();
+    const queryClient = useQueryClient()
+
+    const {mutate: collect} = api.collect.collect_sticker.useMutation({
+        onSuccess: async () => {
+
+            toast({
+                title: "🎉Yayyyyy!🎉",
+                description: "You have collected a sticker!",
+            })
+
+            await queryClient.invalidateQueries({
+                queryKey: ['collected-sticker']
+            })
+        },
+        onError: (e) => {
+            if (e.status === 500) {
+                toast({
+                    variant: 'destructive',
+                    title: "Oops! Failed to collect !😢",
+                    description: "Please try again later!",
+                })
+            } else if (e.status === 400) {
+                toast({
+                    variant: 'destructive',
+                    title: "Already collected"!,
+                    description: "You already collected this sticker!",
+                })
+            }
+        }
+    })
     const scanHandler = (data: IDetectedBarcode[]) => {
-        console.log(data[0].rawValue)
-        toast({
-            title: "🎉Yayyyyy!🎉",
-            description: "You have collected a sticker!",
-        })
+        if (data[0].rawValue.length === 0) {
+            toast({
+                title: "Please scan the qr code",
+                duration: 1000,
+            })
+            return;
+        }
+        collect(data[0].rawValue)
     }
 
     const positions = [

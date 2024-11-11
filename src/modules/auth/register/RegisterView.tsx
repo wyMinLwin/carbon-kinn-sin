@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form"
 import {Input} from "@/components/ui/input"
 import {Button} from "@/components/ui/button"
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {UpdateIcon} from "@radix-ui/react-icons";
 import {EyeIcon, EyeOffIcon} from "lucide-react";
 import api from "@/api";
@@ -32,12 +32,16 @@ const FormSchema = z.object({
 })
 
 const RegisterView = () => {
-
+    const navigate = useNavigate()
     const {mutate: register} = api.auth.register.useMutation(
         {
             onMutate: () => setIsLoading(true),
             onSuccess: (data) => {
-                console.log(data)
+                navigate('/auth/login')
+                toast({
+                    title: "Registration Successful!",
+                    description: `Please login with ${data.email} to continue.`,
+                })
             },
             onError: () => {
                 toast({
@@ -197,7 +201,7 @@ const RegisterView = () => {
                         </div>
 
                         <div>
-                            <NavLink to={'/auth/index'} className="text-[#0f8feb] font-medium text-sm hover:underline">Already
+                            <NavLink to={'/auth/login'} className="text-[#0f8feb] font-medium text-sm hover:underline">Already
                                 have an account? </NavLink>
                         </div>
                     </div>

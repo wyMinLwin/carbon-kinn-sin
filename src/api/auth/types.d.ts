@@ -20,3 +20,10 @@ export type RegisterResponse = {
     email: string;
     ph_num: string;
 }
+
+export type VerifyUserType = {
+    id: number,
+    name: string;
+    email: string;
+    ph_num: string;
+}

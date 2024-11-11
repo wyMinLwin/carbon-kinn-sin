@@ -12,6 +12,9 @@ import {Toaster} from "@/components/ui/toaster.tsx";
 import RewardsView from "@/modules/rewards/RewardsView.tsx";
 import PartnershipsView from "@/modules/partnerships/PartnershipsView.tsx";
 import ProfileView from "@/modules/profile/ProfileView.tsx";
+import {Provider} from "react-redux";
+import {store} from "@/store";
+import Loader from "@/components/Loader.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -71,12 +74,13 @@ const router = createBrowserRouter([
 const Wrapper = () => {
 	const queryClient = new QueryClient();
 	return (
-		<>
+		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
 				<Toaster />
+				<Loader />
 				<RouterProvider router={router}></RouterProvider>
 			</QueryClientProvider>
-		</>
+		</Provider>
 	);
 };
 
