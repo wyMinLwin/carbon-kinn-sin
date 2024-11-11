@@ -10,16 +10,21 @@ import {Map, Marker} from "@vis.gl/react-maplibre";
 import 'maplibre-gl/dist/maplibre-gl.css';
 import api from "@/api";
 import {useQueryClient} from "@tanstack/react-query";
+import {useState} from "react";
 
 
 const PlayView = () => {
     // const gKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+    const [drawerOpen,setDrawerOpen] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+
     const {toast} = useToast();
     const queryClient = useQueryClient()
 
     const {mutate: collect} = api.collect.collect_sticker.useMutation({
+        onMutate: () => setIsLoading(true),
         onSuccess: async () => {
-
+            setDrawerOpen(false)
             toast({
                 title: "🎉Yayyyyy!🎉",
                 description: "You have collected a sticker!",
@@ -43,6 +48,7 @@ const PlayView = () => {
                     description: "You already collected this sticker!",
                 })
             }
+            setIsLoading(false)
         }
     })
     const scanHandler = (data: IDetectedBarcode[]) => {
@@ -103,7 +109,7 @@ const PlayView = () => {
                 </div>
             </div>
             <div className={'pb-[10%] flex sm:hidden grow-0'}>
-                <Drawer snapPoints={[1]} fadeFromIndex={0}>
+                <Drawer open={drawerOpen} onOpenChange={setDrawerOpen} snapPoints={[1]} fadeFromIndex={0}>
                     <DrawerTrigger asChild={true}>
                         <Button size={'lg'} className={
                             'neo-wrap neo-wrap-btn w-[200px] mx-auto text-lg font-semibold space-x-1.5'
@@ -118,7 +124,7 @@ const PlayView = () => {
                             <DrawerTitle>Scan QR Code</DrawerTitle>
                         </VisuallyHidden>
                         <div className={'p-4 w-full aspect-square'}>
-                            <Scanner onScan={(data) => scanHandler(data)}/>
+                            <Scanner paused={isLoading} onScan={(data) => scanHandler(data)}/>
                         </div>
                     </DrawerContent>
                 </Drawer>
@@ -141,7 +147,7 @@ const PlayView = () => {
                             <DialogTitle>Scan QR Code</DialogTitle>
                         </VisuallyHidden>
                         <div className={'p-4 w-full aspect-square'}>
-                            <Scanner onScan={(data) => scanHandler(data)}/>
+                            <Scanner paused={isLoading} onScan={(data) => scanHandler(data)}/>
                         </div>
                         <VisuallyHidden>
                             <DialogDescription>Scan the QR code from sticker</DialogDescription>
