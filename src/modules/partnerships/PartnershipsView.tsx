@@ -29,7 +29,7 @@ const PartnershipsView = () => {
                         whileInView={{opacity: 1, scale: 1}}
                         transition={{duration: 0.4}}
                         viewport={{once: true}}
-                        href={'https://codemal.com/'} className={'flex-grow'} target={'_blank'}>
+                        href={'https://www.facebook.com/codemalmyanmar'} className={'flex-grow'} target={'_blank'}>
                         <Card className={'neo-wrap h-full'}>
                             <CardHeader className={'pb-3'}>
                                 <CardTitle>

@@ -52,6 +52,7 @@ const ProfileView = () => {
 
             <div className={'py-16 space-y-3'}>
                 <h2 className={'text-lg font-medium'}>Your Collections</h2>
+                <h3>You have collected {data?.length || 0} stickers</h3>
                 <div className={'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full'}>
                     {
                         stickers.map((sticker, index) => (

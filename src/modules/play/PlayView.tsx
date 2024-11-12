@@ -35,6 +35,7 @@ const PlayView = () => {
             })
         },
         onError: (e) => {
+            setIsLoading(false)
             if (e.status === 500) {
                 toast({
                     variant: 'destructive',
@@ -48,7 +49,6 @@ const PlayView = () => {
                     description: "You already collected this sticker!",
                 })
             }
-            setIsLoading(false)
         }
     })
     const scanHandler = (data: IDetectedBarcode[]) => {
@@ -75,8 +75,8 @@ const PlayView = () => {
         {lat: 16.771892874959754, lng: 96.16169623638774},//Lokanat Gallery
         {lat: 16.77113595508786, lng:96.1605223594705},//Myanmar Ahla Gallery
         {lat: 16.772818118374545, lng: 96.16560301529331},//Doh eain
-        {lat: 16.852045296692854, lng: 96.17213633359017}, //Salavation army
-        {lat: 16.82790704174481, lng: 96.1294792265922}, // U htun lin chan lan
+        {lat: 16.776667, lng: 96.167404}, //Salavation army
+        {lat: 16.826708, lng: 96.128625}, // U htun won chan lan
         {lat: 16.773148720956296, lng:96.15946971808266}, //sule kyouk tai
         {lat: 16.77449975858058, lng: 96.16169387330089},// pansodan scene gallery
         {lat: 16.776462, lng: 96.166819},// sar oak sai (won gyi myar yone)
@@ -110,7 +110,7 @@ const PlayView = () => {
             </div>
             <div className={'pb-[10%] flex sm:hidden grow-0'}>
                 <Drawer open={drawerOpen} onOpenChange={setDrawerOpen} snapPoints={[1]} fadeFromIndex={0}>
-                    <DrawerTrigger asChild={true}>
+                    <DrawerTrigger asChild={true} onClick={() => setIsLoading(false)}>
                         <Button size={'lg'} className={
                             'neo-wrap neo-wrap-btn w-[200px] mx-auto text-lg font-semibold space-x-1.5'
                         }>
@@ -133,7 +133,7 @@ const PlayView = () => {
 
             <div className={'pb-[15%]  hidden sm:flex grow-0'}>
                 <Dialog>
-                    <DialogTrigger asChild={true}>
+                    <DialogTrigger asChild={true} onClick={() => setIsLoading(false)}>
                         <Button size={'lg'} className={
                             'neo-wrap neo-wrap-btn w-[200px] mx-auto text-lg font-semibold space-x-1.5'
                         }>
