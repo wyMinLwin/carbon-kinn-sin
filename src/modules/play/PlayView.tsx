@@ -80,6 +80,10 @@ const PlayView = () => {
         {lat: 16.773148720956296, lng:96.15946971808266}, //sule kyouk tai
         {lat: 16.77449975858058, lng: 96.16169387330089},// pansodan scene gallery
         {lat: 16.776462, lng: 96.166819},// sar oak sai (won gyi myar yone)
+        {lat: 16.774873218955918, lng: 96.16430209405878},//https://ourheritagehomes.com/listing/the-old-timey/?USD
+        {lat: 16.771877607092847, lng: 96.16666138768299},//https://ourheritagehomes.com/listing/merchant-flat/?USD
+        {lat: 16.77364684464267, lng:96.16483868426049},//https://ourheritagehomes.com/listing/ex-office/?USD
+        {lat: 16.774507917847863, lng:96.16731064500972},//ymca
 
     ];//,
 
