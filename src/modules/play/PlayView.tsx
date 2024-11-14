@@ -69,9 +69,9 @@ const PlayView = () => {
         {lat: 16.774405968693408, lng: 96.16306036707164},//ဆိပ်ကမ်းသာလမ်း
         {lat: 16.77437910605136, lng: 96.16233967296455},//Pansoedan bus stop
         {lat:16.778045938289946, lng:96.15885737831977},//sule bus stop
-        {lat: 16.774513267019238, lng: 96.15878723650745},// sule pagoda
+        // {lat: 16.774513267019238, lng: 96.15878723650745},// sule pagoda
         {lat: 16.780399145793343, lng:96.15561632631386},// bogyokezay
-        {lat: 16.80846473648042, lng: 96.13607114860767},//Myaynigone Over Sky Bridge
+        // {lat: 16.80846473648042, lng: 96.13607114860767},//Myaynigone Over Sky Bridge
         {lat: 16.771892874959754, lng: 96.16169623638774},//Lokanat Gallery
         {lat: 16.77113595508786, lng:96.1605223594705},//Myanmar Ahla Gallery
         {lat: 16.772818118374545, lng: 96.16560301529331},//Doh eain
